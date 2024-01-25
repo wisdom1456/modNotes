@@ -17,6 +17,7 @@
       <li class="md:mx-2"><a href="/blog">Blog</a></li>
       <li class="md:mx-2"><a href="/pricing">Pricing</a></li>
       <li class="md:mx-2"><a href="/account">Account</a></li>
+      <li class="md:mx-2"><a href="/journal">Journal</a></li>
     </ul>
     <div class="dropdown dropdown-end sm:hidden">
       <!-- svelte-ignore a11y-label-has-associated-control -->
@@ -44,6 +45,7 @@
         <li><a href="/blog">Blog</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/account">Account</a></li>
+        <li><a href="/journal">Journal</a></li>
         <li>
           <a
             href="https://github.com/CriticalMoments/CMSaasStarter"
@@ -71,6 +73,8 @@
       <a class="link link-hover mb-1" href="/">Overview</a>
       <a class="link link-hover my-1" href="/pricing">Pricing</a>
       <a class="link link-hover my-1" href="/blog">Blog</a>
+      <a class="link link-hover my-1" href="/account">Account</a>
+      <a class="link link-hover my-1" href="/journal">Journal</a>
       <a
         class="link link-hover my-1"
         href="https://github.com/CriticalMoments/CMSaasStarter">Github</a

@@ -27,7 +27,18 @@ export const load = async ({ fetch, data, depends, url }) => {
     throw redirect(303, createProfilePath)
   }
 
-  return { supabase, session, profile }
+  // Fetch journal_entries data
+  const { data: journalEntries, error: journalEntriesError } = await supabase
+    .from("journal_entries")
+    .select("*")
+    .eq("user_id", session?.user?.id) // Add null check for session
+
+  if (journalEntriesError) {
+    console.error("Error fetching journal entries:", journalEntriesError)
+    throw new Error("Failed to fetch journal entries.")
+  }
+
+  return { supabase, session, profile, journalEntries }
 }
 
 export const _hasFullProfile = (

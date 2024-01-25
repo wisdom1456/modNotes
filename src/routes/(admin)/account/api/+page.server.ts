@@ -249,4 +249,248 @@ export const actions = {
       throw redirect(303, "/")
     }
   },
+  // Action to create a new journal entry
+  createJournalEntry: async ({ request, locals: { supabase, getSession } }) => {
+    const session = await getSession()
+    if (!session) {
+      return fail(400, { errorMessage: "Not authenticated" })
+    }
+
+    const formData = await request.formData()
+    const title = formData.get("title") as string
+    const tags = formData.getAll("tags") as string[] // Assuming tags are sent as multiple form fields with the same name
+    const userText = formData.get("user_text") as string
+    const aiGeneratedText = formData.get("ai_generated_text") as string
+    const aiGeneratedImageUrl = formData.get("ai_generated_image_url") as string
+    const entryDate = formData.get("entry_date")
+      ? new Date(formData.get("entry_date") as string)
+      : new Date()
+    const moodIndicator = formData.get("mood_indicator") as string
+    const weather = formData.get("weather") as string
+    const location = formData.get("location") as string
+    const wordCount = parseInt(formData.get("word_count") as string) || 0
+    const privacyLevel = formData.get("privacy_level") as string
+    const dailyQuote = formData.get("daily_quote") as string
+    const entryType = formData.get("entry_type") as string
+    const bookmarkFlag = formData.get("bookmark_flag") === "true"
+    const status = formData.get("status") as string
+    const imageUrl = formData.get("image_url") as string
+    const audioUrl = formData.get("audio_url") as string
+    const timeSpent = formData.get("time_spent") as string // Assuming this is sent as a string like "01:00:00"
+
+    // Validate required fields
+    if (!title || !userText) {
+      return fail(400, { errorMessage: "Title and text are required" })
+    }
+
+    // Insert into database
+    const { error } = await supabase.from("journal_entries").insert([
+      {
+        user_id: session.user.id,
+        title,
+        tags,
+        user_text: userText,
+        ai_generated_text: aiGeneratedText,
+        ai_generated_image_url: aiGeneratedImageUrl,
+        entry_date: entryDate,
+        mood_indicator: moodIndicator,
+        weather,
+        location,
+        word_count: wordCount,
+        privacy_level: privacyLevel,
+        daily_quote: dailyQuote,
+        entry_type: entryType,
+        bookmark_flag: bookmarkFlag,
+        status,
+        image_url: imageUrl,
+        audio_url: audioUrl,
+        time_spent: timeSpent ? `interval '${timeSpent}'` : null, // Assuming correct format for interval
+      },
+    ])
+
+    if (error) {
+      return fail(500, { errorMessage: "Could not create journal entry" })
+    }
+
+    return {} // You might want to return something like an ID or confirmation message
+  },
+
+  updateJournalEntry: async ({ request, locals: { supabase, getSession } }) => {
+    const session = await getSession()
+    const formData = await request.formData()
+    const id = formData.get("id") as string
+    const title = formData.get("title") as string
+    const tags = formData.getAll("tags") as string[] // Assuming tags are sent as multiple form fields with the same name
+    const userText = formData.get("user_text") as string
+    const aiGeneratedText = formData.get("ai_generated_text") as string
+    const aiGeneratedImageUrl = formData.get("ai_generated_image_url") as string
+    const entryDate = formData.get("entry_date")
+      ? new Date(formData.get("entry_date") as string)
+      : new Date()
+    const moodIndicator = formData.get("mood_indicator") as string
+    const weather = formData.get("weather") as string
+    const location = formData.get("location") as string
+    const wordCount = parseInt(formData.get("word_count") as string) || 0
+    const privacyLevel = formData.get("privacy_level") as string
+    const dailyQuote = formData.get("daily_quote") as string
+    const entryType = formData.get("entry_type") as string
+    const bookmarkFlag = formData.get("bookmark_flag") === "true"
+    const status = formData.get("status") as string
+    const imageUrl = formData.get("image_url") as string
+    const audioUrl = formData.get("audio_url") as string
+    const timeSpent = formData.get("time_spent") as string // Assuming this is sent as a string like "01:00:00"
+
+    // Perform validation checks here
+    if (!id) {
+      return fail(400, {
+        errorMessage: "ID is required to update journal entry.",
+      })
+    }
+
+    if (!title) {
+      return fail(400, {
+        errorMessage: "Title is required to update journal entry.",
+      })
+    }
+
+    if (!userText) {
+      return fail(400, {
+        errorMessage: "Text is required to update journal entry.",
+      })
+    }
+    if (!entryDate) {
+      return fail(400, {
+        errorMessage: "Entry date is required to update journal entry.",
+      })
+    }
+    if (!moodIndicator) {
+      return fail(400, {
+        errorMessage: "Mood indicator is required to update journal entry.",
+      })
+    }
+    if (!weather) {
+      return fail(400, {
+        errorMessage: "Weather is required to update journal entry.",
+      })
+    }
+    if (!location) {
+      return fail(400, {
+        errorMessage: "Location is required to update journal entry.",
+      })
+    }
+    if (!privacyLevel) {
+      return fail(400, {
+        errorMessage: "Privacy level is required to update journal entry.",
+      })
+    }
+    if (!entryType) {
+      return fail(400, {
+        errorMessage: "Entry type is required to update journal entry.",
+      })
+    }
+    if (!status) {
+      return fail(400, {
+        errorMessage: "Status is required to update journal entry.",
+      })
+    }
+
+    const { error } = await supabase
+      .from("journal_entries")
+      .update({
+        title,
+        tags,
+        user_text: userText,
+        ai_generated_text: aiGeneratedText,
+        ai_generated_image_url: aiGeneratedImageUrl,
+        entry_date: entryDate,
+        mood_indicator: moodIndicator,
+        weather,
+        location,
+        word_count: wordCount,
+        privacy_level: privacyLevel,
+        daily_quote: dailyQuote,
+        entry_type: entryType,
+        bookmark_flag: bookmarkFlag,
+        status,
+        image_url: imageUrl,
+        audio_url: audioUrl,
+        time_spent: timeSpent ? `interval '${timeSpent}'` : null, // Assuming correct format for interval
+      })
+      .eq("id", id)
+      .eq("user_id", session?.user?.id) // Ensure users can only update their entries
+
+    if (error) {
+      return fail(500, { errorMessage: "Failed to update journal entry." })
+    }
+
+    return { message: "Journal entry updated successfully." }
+  },
+
+  deleteJournalEntry: async ({ request, locals: { supabase, getSession } }) => {
+    const session = await getSession()
+    const formData = await request.formData()
+    const id = formData.get("id") as string
+
+    const { error } = await supabase
+      .from("journal_entries")
+      .delete()
+      .eq("id", id)
+      .eq("user_id", session.user.id) // Ensure users can only delete their entries
+
+    if (error) {
+      return fail(500, { errorMessage: "Failed to delete journal entry." })
+    }
+
+    return { message: "Journal entry deleted successfully." }
+  },
+
+  // Action to get all journal entries for the user
+  getJournalEntries: async ({ locals: { supabase } }) => {
+    const userResponse = await supabase.auth.getUser()
+
+    // Check if the user data is successfully retrieved
+    if (!userResponse.data.user) {
+      return fail(400, { errorMessage: "Not authenticated" })
+    }
+
+    // Now you can safely access user.id
+    const userId = userResponse.data.user.id
+
+    const { data, error } = await supabase
+      .from("journal_entries")
+      .select(
+        `
+      id,
+      title,
+      tags,
+      user_text,
+      ai_generated_text,
+      ai_generated_image_url,
+      entry_date,
+      mood_indicator,
+      weather,
+      location,
+      word_count,
+      privacy_level,
+      daily_quote,
+      entry_type,
+      bookmark_flag,
+      status,
+      image_url,
+      audio_url,
+      time_spent
+    `,
+      ) // Selecting specific fields
+      .eq("user_id", userId) // Use the userId variable
+      .order("entry_date", { ascending: false })
+
+    if (error) {
+      return fail(500, {
+        errorMessage: "Could not get journal entries",
+        details: error.message,
+      })
+    }
+
+    return { journalEntries: data }
+  },
 }

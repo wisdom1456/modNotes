@@ -7,24 +7,24 @@
 
 ### SaaS Starter is an open source, fast, and free to host SaaS template / boilerplate
 
-- [Feature Rich](#features): user auth, user dashboard, marketing site, blog engine, billing/subscriptions, pricing page, and more. 
-- [Lightning Performance](#performance--best-practices): fast pre-rendered pages which score 100/100 on Google PageSpeed. 
-- [Delighful Tech Stack](#tech-stack): tools you'll love working with, including SvelteKit, Tailwind, DaisyUI, Postgres, and Supabase. 
+- [Feature Rich](#features): user auth, user dashboard, marketing site, blog engine, billing/subscriptions, pricing page, and more.
+- [Lightning Performance](#performance--best-practices): fast pre-rendered pages which score 100/100 on Google PageSpeed.
+- [Delighful Tech Stack](#tech-stack): tools you'll love working with, including SvelteKit, Tailwind, DaisyUI, Postgres, and Supabase.
 - Extensible: all the tools you need to make additional marketing pages, UI components, user dashboards, admin portals, database backends, API endpoints, and more.
 - [Hosting](#suggested-hosting-stack): Our suggested hosting stack is free to host, cheap to scale, easy to manage, and includes automatic deployments.
 - [MIT Open Source](https://github.com/CriticalMoments/CMSaasStarter/blob/main/LICENSE)
 - [Fully Functional Demo](https://saasstarter.work)
 - [Quick Start](#quick-start): Full docs from `git clone` to deployment.
 
-Created by the folks at [Critical Moments](https://criticalmoments.io)! Check out our website site for an example depolyment of SaaS Starter. 
+Created by the folks at [Critical Moments](https://criticalmoments.io)! Check out our website site for an example depolyment of SaaS Starter.
 
 **Make mobile apps?** Improve conversion rates and ratings with [Critical Moments](https://criticalmoments.io).
 
-## Demo 
+## Demo
 
 You can explore all the features using our fully functional demo [saasstarter.work](https://saasstarter.work).
 
-[![Try it Now](https://img.shields.io/badge/Try_it_Now-37a779?style=for-the-badge 'Try it Now')](https://saasstarter.work)
+[![Try it Now](https://img.shields.io/badge/Try_it_Now-37a779?style=for-the-badge "Try it Now")](https://saasstarter.work)
 
 See [criticalmoments.io](https://criticalmoments.io) for an example of what’s possible after this template has design, content, and functionality added.
 
@@ -65,48 +65,48 @@ Everything you need to get started for a SaaS company:
   - Framework: TailwindCSS
   - Component library: DaisyUI
 - Suggested Hosting Stack
-  - Host + CDN: Cloudflare Pages 
+  - Host + CDN: Cloudflare Pages
   - Serverless compute: Cloudflare Workers
   - Authentication: Supabase Auth
   - Database: Supabase Postgres
 - Payments
-  - Stripe Checkout 
+  - Stripe Checkout
   - Stripe Portal
 
 ## Suggested Hosting Stack
 
 **There’s no cost for using this template**. The costs below reflect our suggested hosting stack.
 
-- $0/mo — Supabase free tier, Cloudflare free tier. 
-  - Pros: 
-    - Free! 
-    - Can scale to thousands of users. 
-    - Unlimited static page requests. 
-    - 100k serverless functions/day. 
-  - Cons: 
+- $0/mo — Supabase free tier, Cloudflare free tier.
+  - Pros:
+    - Free!
+    - Can scale to thousands of users.
+    - Unlimited static page requests.
+    - 100k serverless functions/day.
+  - Cons:
     - Does not include database backups. The frugal among you could hook up pgdump with lambda/S3 to add backups for a <$1 a month.
-    - Will auto-pause your database when not in use. 
-  - Who it’s for: 
+    - Will auto-pause your database when not in use.
+  - Who it’s for:
     - This tier is perfectly functional for a hobby project, or pre-revenue company. It’s easy to scale up once revenue starts, but it’s also fine to keep indefinitely if it never takes off.
 - $30/mo - Supabase Pro, Cloudfare [Workers Paid](https://www.cloudflare.com/plans/developer-platform/)
-  - Pros: 
-    - Database backups. 
-    - Never pauses database. 
+  - Pros:
+    - Database backups.
+    - Never pauses database.
     - Over 1M serverless functions per day, with linear pricing for additional invocations.
-  - Cons: 
+  - Cons:
     - none
-  - Who it’s for: 
+  - Who it’s for:
     - I suggest moving to this ASAP once you have paid customers or investors.
 
 ## Performance / Best Practices
 
 The selected tech stack creates lightning fast websites.
 
- - Pre-rendering (static generation) for marketing pages, pricing and blog
- - CDN optimized, for high edge-cache hit ratios
- - Edge-functions for dynamic APIs/pages
- - Svelte and Tailwind compile out unused HTML, CSS and JS at deploy time for smaller pages
- - Linting to find accessibility and syntax issues
+- Pre-rendering (static generation) for marketing pages, pricing and blog
+- CDN optimized, for high edge-cache hit ratios
+- Edge-functions for dynamic APIs/pages
+- Svelte and Tailwind compile out unused HTML, CSS and JS at deploy time for smaller pages
+- Linting to find accessibility and syntax issues
 
 The result is a perfect Google PageSpeed Insights score in all categories!
 
@@ -128,7 +128,7 @@ npm run dev --
 
 ### Developer Environment
 
-The repo includes [CI scripts](https://aws.amazon.com/devops/continuous-integration/) designed for [GitHub Actions](https://github.com/features/actions). These confirm you don’t break your [build](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/build.yml), you use [proper code formatting](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/format.yml), and [code linting passes](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/linting.yml). 
+The repo includes [CI scripts](https://aws.amazon.com/devops/continuous-integration/) designed for [GitHub Actions](https://github.com/features/actions). These confirm you don’t break your [build](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/build.yml), you use [proper code formatting](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/format.yml), and [code linting passes](https://github.com/CriticalMoments/CMSaasStarter/blob/main/.github/workflows/linting.yml).
 
 Installing a Svelte extension in your editor will help automatically apply formatting on-save, and show linting issues inline. The [VS Code svelte extension](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode) is excellent. [Extensions for other editors are available here.](https://sveltesociety.dev/tools#editor-support)
 
@@ -162,7 +162,7 @@ Finally: if you find build, formatting or linting rules too tedious, you can dis
     ```
   - For production, add these two keys to your Cloudflare environment (see below). We suggest you encrypt your service role.
 - Auth Callback
-  - Set your default callback URL for auth in the Supabase Auth console. For example, for the demo page we added: `https://saasstarter.work/auth/callback` . Also add that same URL to the the “allowed redirect URL” list in the Supabase auth console further down the page. 
+  - Set your default callback URL for auth in the Supabase Auth console. For example, for the demo page we added: `https://saasstarter.work/auth/callback` . Also add that same URL to the the “allowed redirect URL” list in the Supabase auth console further down the page.
   - Add a link to the redirect URL allow list which allows parameters to your auth callback. For example we added the following for the demo page: `https://saasstarter.work/auth/callback?*`
   - Also add any local development URLs you want to use in testing to the list for your dev environment. For example, we added the following for local development: `http://localhost:5173/auth/callback` and `http://localhost:5173/auth/callback?*`.
   - Test that the "sign up" and "forgot password" emails link back to your domain correctly by checking the have a redirect_to parameter to your `yourdomain.com/auth/callback`. If they link to the base URL or another page, double check you have the config above set correctly.
@@ -180,8 +180,8 @@ Finally: if you find build, formatting or linting rules too tedious, you can dis
 
 - Create a Stripe account
 - Create a product and price Tiers
-  - Create your [products](https://stripe.com/docs/api/products) and their [prices](https://stripe.com/docs/api/prices) in the Dashboard or with the Stripe CLI. 
-  - SaaS Starter works best if you define each tier as a separate product (eg, `SaaS Starter Free`, `Saas Starter Pro`, `Saas Starter Enterprise`). Include a monthly and annual price for each product if you want to support multiple billing periods. 
+  - Create your [products](https://stripe.com/docs/api/products) and their [prices](https://stripe.com/docs/api/prices) in the Dashboard or with the Stripe CLI.
+  - SaaS Starter works best if you define each tier as a separate product (eg, `SaaS Starter Free`, `Saas Starter Pro`, `Saas Starter Enterprise`). Include a monthly and annual price for each product if you want to support multiple billing periods.
   - You do not need to create a free plan in Stripe. The free plan is managed within the app.
 - Setup your environment
   - Get your [Secret API](https://dashboard.stripe.com/test/apikeys) key, and add it as an environment variable PRIVATE_STRIPE_API_KEY (`.env.local` locally, and Cloudflare environment for prod). Be sure to use test keys for development, and keep your production/live keys secret and secure.
@@ -190,8 +190,8 @@ Finally: if you find build, formatting or linting rules too tedious, you can dis
 - Update your pricing plan data to align to your stripe data
   - See `/src/routes/(marketing)/pricing/pricing.js` and Fill in all fields for each plan. stripe_price_id and stripe_product_id should only be omitted on a single “free” plan. Multiple free plans are not supported.
     - The product in Stripe can contain several prices for the same product (annual, monthly, etc). The stripe_price_id you choose to put in this json will be the default we use for the checkout experience. However, if you have more prices configured for a product configured, the user can switch between them in the management portal.
-  - Set the `defaultPlanId` to the plan the user will see as their “current plan” after signup, but before subscribing to a paid plan (typically “free”). It should align to the plan with no stripe_price_id. 
-  - if you want an item highlighted on `/pricing`, specify  that plan ID in `/src/routes/(marketing)/pricing/+page.svelte`
+  - Set the `defaultPlanId` to the plan the user will see as their “current plan” after signup, but before subscribing to a paid plan (typically “free”). It should align to the plan with no stripe_price_id.
+  - if you want an item highlighted on `/pricing`, specify that plan ID in `/src/routes/(marketing)/pricing/+page.svelte`
 - Update your portal configuration
   - Open [stripe portal config](https://dashboard.stripe.com/test/settings/billing/portal) and make the following changes
     - Disallow editing email under customer information (since we allow editing in primary portal)
@@ -202,12 +202,13 @@ Finally: if you find build, formatting or linting rules too tedious, you can dis
 
 Cloudflare Pages and Workers is one of the most popular options for deploying SvelteKit and we recommend it. [Follow Cloudflare’s instructions](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-site/#deploy-with-cloudflare-pages) to deploy in a few clicks. Be sure to select “SvelteKit” as framework, and the rest of the defaults will work.
 
-When prompted: add environment variables for your production environment (PUBLIC_SUPABASE_URL, 
+When prompted: add environment variables for your production environment (PUBLIC_SUPABASE_URL,
 PUBLIC_SUPABASE_ANON_KEY, PRIVATE_SUPABASE_SERVICE_ROLE, PRIVATE_STRIPE_API_KEY, and PUBLIC_SITE_NAME).
 
 Optional: enable [Cloudflare Analytics](https://www.cloudflare.com/en-ca/application-services/products/analytics/) for usage metrics.
 
-If you prefer another host you can explore alternatives: 
+If you prefer another host you can explore alternatives:
+
 - [SvelteKit official adapters](https://kit.svelte.dev/docs/adapters) including Netlify, Vercel, and Node
 - [Community adapters](https://sveltesociety.dev/components#adapters) including Github pages, AppEngine, Azure, and more
 - [Supabase](https://supabase.com/docs/guides/getting-started/quickstarts/sveltekit) if you want one host for everything. Note: they do charge $10 a month for custom domains, unlike Cloudflare.
@@ -216,10 +217,10 @@ If you prefer another host you can explore alternatives:
 
 After the steps above, you’ll have a working version like the demo page. However, it’s not branded, and doesn’t have your content. The following checklist helps you customize the template to make a SaaS homepage for your company.
 
-- Set the PUBLIC_SITE_NAME to your company name in `.env.local` and your production environment. 
+- Set the PUBLIC_SITE_NAME to your company name in `.env.local` and your production environment.
 - Content
   - Add actual content for marketing homepage
-  - Add actual content for your blog (or delete the blog) 
+  - Add actual content for your blog (or delete the blog)
     - Update all fields in `src/routes/(markeing)/blog/posts.json`, and replace the post pages under `src/routes/(markeing)/blog/posts` to align to the urls from posts.json.
     - Alternatively remove the blog by removing the src/routes/(marketing)/blog directory, and remove any links to the blog in the header and footer. You can always bring it back later.
   - Add any pages you want on top of our boiler plate (about, terms of service, etc). Be sure to add links to them in the header, mobile menu header, and footer as appropriate (`src/routes/(marketing)/+layout.svelte`).
@@ -242,6 +243,6 @@ After the steps above, you’ll have a working version like the demo page. Howev
 
 Icons in the template are from [Solar Broken Line Icons Collection](https://www.svgrepo.com/collection/solar-broken-line-icons/) via CC Attribution License.
 
-# Sponsor 
+# Sponsor
 
 We hope you enjoy SaaS Starter! If you build mobile apps, please check out its sponsor/creator, [Critical Moments](https://criticalmoments.io). We can help improve your mobile app conversions, improve your app rating, and mitigate major bugs and outages.
